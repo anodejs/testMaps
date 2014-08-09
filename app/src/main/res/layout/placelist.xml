@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    tools:context="com.microsoft.bing.dss.MainActivity">
+
+
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="title"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/placelisitemtitle"
+            android:textSize="30sp"
+            android:paddingLeft="10dp"
+
+            />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="location"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/placelisitemtitle"
+            android:id="@+id/placelistitemlocation"
+            android:textSize="16sp"
+            android:paddingLeft="10dp"
+            />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="time"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/placelistitemlocation"
+            android:id="@+id/placelistitemtime"
+            android:textSize="16sp"
+            android:paddingLeft="10dp"
+            />
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="distance"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/placelistitemtime"
+            android:id="@+id/placelistitemdistance"
+            android:textSize="16sp"
+            android:paddingLeft="10dp"
+            />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="number of people"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/placelistitemdistance"
+            android:id="@+id/placelistitemnumber"
+            android:textSize="16sp"
+            android:paddingLeft="10dp"
+            />
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
+
+
