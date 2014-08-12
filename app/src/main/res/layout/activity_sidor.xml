@@ -1,0 +1,114 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
+
+    tools:context="com.example.administrator.myapplication.SidorActivity"
+    >
+
+    <TextView
+        android:text="שלום, התראות על חגים"
+        android:paddingBottom="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewHolidaysAlerts"
+        android:textColor="@android:color/holo_red_light"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:layout_gravity="right"
+        android:id="@+id/linerarLayout"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:layout_alignParentEnd="true">
+
+
+    <LinearLayout
+        android:layout_gravity="right"
+        android:id="@+id/linerarLayout1"
+        android:orientation="horizontal"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="54dp">
+
+       <TextView
+           android:text="סוג תפילה"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/textViewType"
+           android:layout_gravity="right"
+          />
+
+       <Spinner
+           android:paddingTop="10dp"
+           android:id="@+id/spinnerType1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below = "@+id/textViewType"
+           android:entries="@array/Type_arrays"
+           android:layout_gravity="right"
+
+           />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_gravity="left"
+        android:id="@+id/linerarLayout2"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="54dp">
+
+        <TextView
+            android:text="נוסח"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewVersion"
+            android:layout_gravity="left"
+            />
+
+        <Spinner
+            android:paddingTop="10dp"
+            android:layout_gravity="left"
+            android:id="@+id/spinnerVerison1"
+            android:layout_below ="@+id/textViewVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/Verison_arrays"
+
+
+            />
+   </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linerarLayout"
+            android:id="@+id/TextViewSidor"
+            android:maxLines = "3"
+            android:scrollbars = "vertical"
+            android:text="This text view should act as header This text view should act as header This text view should act as header This text view should act as header This text view should act as header This text view should act as header This text view should act as header"
+            />
+
+    <Button
+        android:layout_gravity="bottom"
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="הצג"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/TextViewSidor" />
+
+
+</RelativeLayout>

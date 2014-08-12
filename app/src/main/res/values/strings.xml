@@ -13,6 +13,20 @@
     <string name="title_place">place</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_signup">רישום</string>
+
+    <string-array name="Verison_arrays">
+        <item>אשכנז</item>
+        <item>ספרד</item>
+        <item>עדות המזרח</item>
+
+    </string-array>
+
+    <string-array name="Type_arrays">
+        <item>שחרית</item>
+        <item>מנחה</item>
+        <item>ערבית</item>
+    </string-array>
+
     <style name="DefaultButtonText">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -26,5 +40,7 @@
         <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">1</item>
     </style>
+
+    <string name="title_activity_sidor">SidorActivity</string>
 
 </resources>
