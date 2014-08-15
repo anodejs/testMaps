@@ -37,6 +37,7 @@ public class MainActivity extends ListActivity {
         models.add(new Model(R.drawable.icon,"מצא עכשיו"));
         models.add(new Model(R.drawable.icon,"לוח תפילות"));
         models.add(new Model(R.drawable.icon,"סידור"));
+        models.add(new Model(R.drawable.icon,"מצפן ירושלים"));
 
         return models;
     }
@@ -70,6 +71,13 @@ public class MainActivity extends ListActivity {
             else if (position == 3)
             {
                 Intent intent = new Intent(MainActivity.this, SidorActivity.class);
+                startActivity(intent);
+
+            }
+
+            else if (position == 4)
+            {
+                Intent intent = new Intent(MainActivity.this, MagneticCompass.class);
                 startActivity(intent);
 
             }
