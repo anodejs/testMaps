@@ -1,15 +1,13 @@
 package com.example.administrator.myapplication;
 
     import android.app.Activity;
-    import android.os.Bundle;
-    import android.text.method.ScrollingMovementMethod;
-    import android.view.View;
-    import android.view.View.OnClickListener;
-    import android.widget.Button;
-    import android.widget.ScrollView;
-    import android.widget.Spinner;
-    import android.widget.TextView;
-    import android.widget.Toast;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
     public class SidorActivity extends Activity {
@@ -23,11 +21,11 @@ package com.example.administrator.myapplication;
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_sidor);
 
-            sidorText =(TextView) findViewById(R.id.TextViewSidor);
-            sidorText.setMovementMethod(new ScrollingMovementMethod());
+            //sidorText =(TextView) findViewById(R.id.TextViewSidor);
+            //sidorText.setMovementMethod(new ScrollingMovementMethod());
 
-            addListenerOnButton();
-            addListenerOnSpinnerItemSelection();
+            //addListenerOnButton();
+            //addListenerOnSpinnerItemSelection();
         }
 
 
@@ -36,7 +34,7 @@ package com.example.administrator.myapplication;
             spinnerType = (Spinner) findViewById(R.id.spinnerType1);
             spinnerType.setOnItemSelectedListener(new CustomOnItemSelectedListener());
 
-            spinnerVerison = (Spinner) findViewById(R.id.spinnerVerison1);
+            //spinnerVerison = (Spinner) findViewById(R.id.spinnerVerison1);
             spinnerVerison.setOnItemSelectedListener(new CustomOnItemSelectedListener());
         }
 
@@ -44,8 +42,8 @@ package com.example.administrator.myapplication;
         public void addListenerOnButton() {
 
             spinnerType = (Spinner) findViewById(R.id.spinnerType1);
-            spinnerVerison = (Spinner) findViewById(R.id.spinnerVerison1);
-            btnSubmit = (Button) findViewById(R.id.btnSubmit);
+            //spinnerVerison = (Spinner) findViewById(R.id.spinnerVerison1);
+            //btnSubmit = (Button) findViewById(R.id.btnSubmit);
 
             btnSubmit.setOnClickListener(new OnClickListener() {
 

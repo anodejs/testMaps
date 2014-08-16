@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    tools:context="com.microsoft.bing.dss.MainActivity"
+    android:weightSum="1"
+   >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="end time"
+        android:id="@+id/endtimetextview"
+        android:textSize="16sp"
+        android:layout_weight="0.25"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="start time"
+        android:id="@+id/starttimetextview"
+        android:textSize="16sp"
+        android:layout_weight="0.25"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="type"
+        android:id="@+id/tfilatypetextview"
+        android:textSize="16sp"
+        android:layout_weight="0.25"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="day"
+        android:id="@+id/daytextview"
+        android:textSize="16sp"
+        android:layout_weight="0.25"
+        />
+
+
+
+
+
+
+
+</LinearLayout>
+
+

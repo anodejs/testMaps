@@ -56,6 +56,14 @@
             android:name=".MagneticCompass"
             android:label="Magnetic" >
         </activity>
+        <activity
+            android:name=".Scheduler"
+            android:label="@string/title_activity_scheduler" >
+        </activity>
+        <activity
+            android:name=".TfilaEditActivity"
+            android:label="@string/title_activity_tfila_edit" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

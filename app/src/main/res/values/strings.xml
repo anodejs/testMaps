@@ -18,9 +18,7 @@
         <item>אשכנז</item>
         <item>ספרד</item>
         <item>עדות המזרח</item>
-
     </string-array>
-
     <string-array name="Type_arrays">
         <item>שחרית</item>
         <item>מנחה</item>
@@ -42,5 +40,8 @@
     </style>
 
     <string name="title_activity_sidor">SidorActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_scheduler">Scheduler</string>
+    <string name="title_activity_tfila_edit">TfilaEditActivity</string>
 
 </resources>
