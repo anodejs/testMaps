@@ -2,7 +2,8 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+      >
 
 
     <TextView
@@ -12,10 +13,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:id="@+id/placetitle"
-        android:textSize="16sp"
+        android:textSize="30sp"
         android:textColor="@android:color/holo_blue_light"
-
-
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp"
         />
 
     <TextView
@@ -24,7 +26,10 @@
         android:text="address"
         android:layout_below="@+id/placetitle"
         android:id="@+id/addresstextview"
-        android:textSize="16sp"
+        android:textSize="18sp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp"
         />
 
 
@@ -35,8 +40,10 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/addresstextview"
         android:id="@+id/participantstextview"
-        android:textSize="16sp"
-
+        android:textSize="18sp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp"
         />
 
     <ListView
@@ -47,20 +54,24 @@
         android:background="#FFFFFF"
         android:divider="@null"
         android:dividerHeight="0dp"
+        android:textSize="18sp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp"
         android:layout_above="@+id/joinnbutton">
     </ListView>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text = "Navigate"
+        android:text = "נווט"
         android:id="@+id/navigatebutton"
         android:layout_alignParentBottom="true"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Join"
+        android:text="הצטרף"
         android:layout_above="@id/navigatebutton"
         android:id="@+id/joinnbutton"
         />

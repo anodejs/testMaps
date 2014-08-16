@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:paddingTop="20dp"
     android:background="#F3F3F3">
 
     <LinearLayout
@@ -11,35 +12,36 @@
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:drawableLeft="@drawable/compass"
+        android:layout_height="120dp"
+        android:drawableRight="@drawable/nearme_icon"
         android:id="@+id/nearMeNowButton"
         android:drawablePadding="0dp"
-        android:text="this is near me"></Button>
+        android:background="#E6E3E8"
+        android:text="חפש עכשיו"></Button>
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:drawableLeft="@drawable/compass"
+        android:layout_height="120dp"
+        android:drawableRight="@drawable/calendar_icon"
         android:id="@+id/schedulerButton"
         android:drawablePadding="0dp"
-        android:text="this is the scheduler"></Button>
+        android:text="לוח תפילות"></Button>
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:drawableLeft="@drawable/compass"
+        android:layout_height="120dp"
+        android:drawableRight="@drawable/sidur_icon"
         android:id="@+id/SidurButton"
         android:drawablePadding="0dp"
-        android:text="this is the sidur"></Button>
+        android:text="סידור"></Button>
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:drawableLeft="@drawable/compass"
+        android:layout_height="120dp"
+        android:drawableRight="@drawable/compass"
         android:id="@+id/CompassButton"
         android:drawablePadding="0dp"
-        android:text="this is the compass"></Button>
+        android:text="מצפן ירושלים"></Button>
 
     </LinearLayout>
 </RelativeLayout>

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-    public class SidorActivity extends Activity {
+    public class SidurActivity extends Activity {
 
         private Spinner spinnerType, spinnerVerison;
         private Button btnSubmit;
@@ -19,7 +19,7 @@ import android.widget.Toast;
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_sidor);
+            setContentView(R.layout.activity_sidur);
 
             //sidorText =(TextView) findViewById(R.id.TextViewSidor);
             //sidorText.setMovementMethod(new ScrollingMovementMethod());
