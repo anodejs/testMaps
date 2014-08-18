@@ -1,25 +1,42 @@
 package com.example.administrator.myapplication;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- * Created by amitmach on 8/16/2014.
- */
+import static com.example.administrator.myapplication.Tfila.Type.*;
+
+
 public class TfilaAdapter extends BaseAdapter{
+
+    public final static int SUNDAY = 0;
+    public final static int MONDAY = 1;
+    public final static int TUESDAY = 2;
+    public final static int WEDNESDAY = 3;
+    public final static int THURSDAY = 4;
+    public final static int FRIDAY = 5;
+    public final static int SATURDAY = 6;
+
+    public final static int SAHARIT = 0;
+    public final static int MINHA = 1;
+    public final static int ARAVIT = 2;
+
 
     private final Context context;
 
     private final int rowLayout;
 
     private ArrayList<Tfila> values;
+
 
     public TfilaAdapter(Context context, int rowlayout, Tfila[] values) {
         super();
@@ -41,7 +58,7 @@ public class TfilaAdapter extends BaseAdapter{
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
@@ -52,8 +69,8 @@ public class TfilaAdapter extends BaseAdapter{
         View rowView = inflater.inflate(rowLayout, parent, false);
 
 
-        TextView dayTextView = (TextView) rowView.findViewById(R.id.daytextview);
-        TextView tfilaTypeTextView= (TextView) rowView.findViewById(R.id.tfilatypetextview);
+        ImageView dayImageView = (ImageView) rowView.findViewById(R.id.day_icon);
+        ImageView tfilaTypeImageView= (ImageView) rowView.findViewById(R.id.type_icon);
         TextView startTimeTextView = (TextView) rowView.findViewById(R.id.starttimetextview);
         TextView endTimeTextView = (TextView) rowView.findViewById(R.id.endtimetextview);
 
@@ -61,10 +78,57 @@ public class TfilaAdapter extends BaseAdapter{
 
         Tfila tfila = (Tfila) getItem(position);
 
-        dayTextView.setText(tfila.get_day() + "");
-        tfilaTypeTextView.setText(tfila.get_type().toString());
-        startTimeTextView.setText(tfila.get_startTime().toString());
-        endTimeTextView.setText(tfila.get_endTime().toString());
+        int indexType = position % 3;
+
+        switch (tfila.get_day())
+        {
+            case (0):
+            {
+                dayImageView.setImageResource(R.drawable.a);
+
+                break;
+            }
+            case (1):
+            {
+                dayImageView.setImageResource(R.drawable.b);
+                break;
+            }
+            case (2):
+            {
+
+            }
+            case (3):
+            {
+
+            }
+            case (4):
+            {
+
+            }
+            case (5):
+            {
+
+            }
+
+        }
+        Tfila.Type type = tfila.get_type();
+
+        switch (type)
+        {
+
+            case Saharit:
+                tfilaTypeImageView.setImageResource(R.drawable.saharit);
+                break;
+            case Minha:
+                tfilaTypeImageView.setImageResource(R.drawable.minha);
+                break;
+            case Aravit:
+                tfilaTypeImageView.setImageResource(R.drawable.aravit);
+                break;
+        }
+
+        startTimeTextView.setText(tfila.get_startTime().format("%k:%M"));
+        endTimeTextView.setText(tfila.get_endTime().format("%k:%M"));
 
         return rowView;
 

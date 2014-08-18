@@ -1,21 +1,19 @@
 package com.example.administrator.myapplication;
 
-import java.util.Date;
 
-/**
- * Created by amitmach on 8/16/2014.
- */
+import android.text.format.Time;
+
 public class Tfila {
 
     public Type get_type() {
         return _type;
     }
 
-    public Date get_startTime() {
+    public Time get_startTime() {
         return _startTime;
     }
 
-    public Date get_endTime() {
+    public Time get_endTime() {
         return _endTime;
     }
 
@@ -38,13 +36,14 @@ public class Tfila {
     }
 
     private Type _type;
-    private Date _startTime;
-    private Date _endTime;
+    private Time _startTime;
+    private Time _endTime;
     private String _location;
     private int _radius;
     private int _day;
 
-    public Tfila(Type type, Date startTime, Date endTime, String location, int radius, int day) {
+    public Tfila(Type type, Time startTime, Time endTime, String location, int radius, int day) {
+
         this._type = type;
         this._startTime = startTime;
         this._endTime = endTime;

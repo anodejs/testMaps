@@ -4,10 +4,13 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ListView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -30,6 +33,7 @@ public class Scheduler extends ListActivity {
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
+
         super.onListItemClick(l, v, position, id);
         Intent intent = new Intent(this, TfilaEditActivity.class);
         Bundle b = new Bundle();
@@ -55,16 +59,14 @@ public class Scheduler extends ListActivity {
             //get it from the server
             m_tfilot = new ArrayList<Tfila>();
 
-            Date now = new Date();
+            Time now = new Time(Time.getCurrentTimezone());
+            now.setToNow();
 
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(new Date());
-            calendar.add(Calendar.HOUR, 1);
-            Date  end = calendar.getTime();
-            Tfila sample = new Tfila(Tfila.Type.Aravit, now, end, "בן גוריון", 0, 10);
+            Tfila sample = new Tfila(Tfila.Type.Saharit, now, now, "ראשון", 10, 0);
+            Tfila sample1 = new Tfila(Tfila.Type.Aravit, now, now, "שני", 20,1);
             m_tfilot.add(sample);
 
-
+            m_tfilot.add(sample1);
             return null;
         }
 

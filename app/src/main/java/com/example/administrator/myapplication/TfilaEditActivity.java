@@ -34,7 +34,7 @@ public class TfilaEditActivity extends Activity implements View.OnClickListener 
         _sumbit.setOnClickListener(this);
     }
 
-
+/*
     public GeoPoint getLocationFromAddress(String strAddress) {
 
         Geocoder coder = new Geocoder(this);
@@ -59,12 +59,13 @@ public class TfilaEditActivity extends Activity implements View.OnClickListener 
         }
 
     }
+    */
     @Override
     public void onClick(View view) {
 
         if (view.getId() == _sumbit.getId())
         {
-            GeoPoint p = getLocationFromAddress(location);
+        //    GeoPoint p = getLocationFromAddress(location);
         }
     }
 }
