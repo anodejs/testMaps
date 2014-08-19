@@ -1,6 +1,7 @@
 package com.example.administrator.myapplication;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -74,11 +75,7 @@ public class TfilaAdapter extends BaseAdapter{
         TextView startTimeTextView = (TextView) rowView.findViewById(R.id.starttimetextview);
         TextView endTimeTextView = (TextView) rowView.findViewById(R.id.endtimetextview);
 
-
-
         Tfila tfila = (Tfila) getItem(position);
-
-        int indexType = position % 3;
 
         switch (tfila.get_day())
         {
@@ -95,19 +92,23 @@ public class TfilaAdapter extends BaseAdapter{
             }
             case (2):
             {
-
+                dayImageView.setImageResource(R.drawable.c);
+                break;
             }
             case (3):
             {
-
+                dayImageView.setImageResource(R.drawable.d);
+                break;
             }
             case (4):
             {
-
+                dayImageView.setImageResource(R.drawable.e);
+                break;
             }
             case (5):
             {
-
+                dayImageView.setImageResource(R.drawable.f);
+                break;
             }
 
         }
@@ -129,6 +130,11 @@ public class TfilaAdapter extends BaseAdapter{
 
         startTimeTextView.setText(tfila.get_startTime().format("%k:%M"));
         endTimeTextView.setText(tfila.get_endTime().format("%k:%M"));
+
+        if(tfila.get_active() == 0)
+        {
+            rowView.setBackgroundColor(Color.LTGRAY);
+        }
 
         return rowView;
 

@@ -16,7 +16,6 @@
         android:drawableRight="@drawable/nearme_icon"
         android:id="@+id/nearMeNowButton"
         android:drawablePadding="0dp"
-        android:background="#E6E3E8"
         android:text="חפש עכשיו"></Button>
 
     <Button

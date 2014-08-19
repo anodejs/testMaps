@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.format.Time;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
 import java.text.ParseException;
@@ -28,6 +30,12 @@ public class Scheduler extends ListActivity {
         Tfila[] list = new Tfila[]{};
         m_adapter = new TfilaAdapter(this,R.layout.tfilalistitem,list);
         setListAdapter(m_adapter);
+
+        ListView lv = getListView();
+        LayoutInflater inflater = getLayoutInflater();
+        ViewGroup header = (ViewGroup)inflater.inflate(R.layout.header_scheduler, lv, false);
+        lv.addHeaderView(header, null, false);
+
         new GetTfilot().execute();
     }
 
@@ -62,11 +70,14 @@ public class Scheduler extends ListActivity {
             Time now = new Time(Time.getCurrentTimezone());
             now.setToNow();
 
-            Tfila sample = new Tfila(Tfila.Type.Saharit, now, now, "ראשון", 10, 0);
-            Tfila sample1 = new Tfila(Tfila.Type.Aravit, now, now, "שני", 20,1);
+            Tfila sample = new Tfila(Tfila.Type.Saharit, now, now, "ראשון", 10, 0,1);
+            Tfila sample1 = new Tfila(Tfila.Type.Aravit, now, now, "שני", 20,1,0);
+            Tfila sample2 = new Tfila(Tfila.Type.Minha, now, now, "שלישי", 20,3,0);
             m_tfilot.add(sample);
 
             m_tfilot.add(sample1);
+            m_tfilot.add(sample2);
+
             return null;
         }
 
