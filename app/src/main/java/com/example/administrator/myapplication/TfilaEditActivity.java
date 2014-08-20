@@ -8,6 +8,8 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -38,6 +40,8 @@ public class TfilaEditActivity extends Activity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tfila_edit);
+
+
 
         _autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.locationautocomplete);
         _sumbit = (Button) findViewById(R.id.sumbitbutton);
@@ -163,4 +167,11 @@ public class TfilaEditActivity extends Activity implements View.OnClickListener 
         }
     };
 
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.tfila_edit, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 }
