@@ -20,13 +20,14 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:id="@+id/placelisitemtitle"
+            android:textStyle="bold"
             android:textSize="30sp"
             android:paddingLeft="10dp"
-            android:textColor="@android:color/holo_blue_light"
-            />
+            android:paddingRight="10dp"
+            android:gravity="right" />
 
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="location"
             android:layout_alignParentLeft="true"
@@ -34,7 +35,20 @@
             android:id="@+id/placelistitemlocation"
             android:textSize="16sp"
             android:paddingLeft="10dp"
-            />
+            android:paddingRight="10dp"
+            android:gravity="left|right" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="כתובת"
+            android:id="@+id/location"
+            android:textSize="16sp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="right"
+            android:layout_above="@+id/placelistitemtime"
+            android:layout_alignParentEnd="true" />
 
         <TextView
             android:layout_width="fill_parent"
@@ -45,7 +59,20 @@
             android:id="@+id/placelistitemtime"
             android:textSize="16sp"
             android:paddingLeft="10dp"
-            />
+            android:paddingRight="10dp"
+            android:gravity="left" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="שעה"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/placelistitemlocation"
+            android:id="@+id/time"
+            android:textSize="16sp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="right" />
 
 
         <TextView
@@ -57,7 +84,32 @@
             android:id="@+id/placelistitemdistance"
             android:textSize="16sp"
             android:paddingLeft="10dp"
-            />
+            android:paddingRight="10dp"
+            android:gravity="left" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="מרחק"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/placelistitemtime"
+            android:id="@+id/distance"
+            android:textSize="16sp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="right" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:text="מספר משתתפים"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/placelistitemdistance"
+            android:id="@+id/number"
+            android:textSize="16sp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_height="wrap_content"
+            android:gravity="right" />
 
         <TextView
             android:layout_width="fill_parent"
@@ -67,9 +119,10 @@
             android:id="@+id/placelistitemnumber"
             android:textSize="16sp"
             android:paddingLeft="10dp"
-            android:layout_height="1px"
-            android:background="#DADADA"
-            />
+            android:paddingRight="10dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingBottom="10dp"/>
 
 
 

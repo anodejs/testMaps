@@ -7,6 +7,7 @@
 
 
     <TextView
+        android:gravity="right"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="name"
@@ -21,6 +22,7 @@
         />
 
     <TextView
+        android:gravity="right"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="address"
@@ -34,9 +36,10 @@
 
 
     <TextView
+        android:gravity="right"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="participants"
+        android:text="רשימת משתתפים:"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/addresstextview"
         android:id="@+id/participantstextview"
@@ -47,6 +50,7 @@
         />
 
     <ListView
+        android:gravity="right"
         android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

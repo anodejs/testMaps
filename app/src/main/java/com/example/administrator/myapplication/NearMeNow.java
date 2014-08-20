@@ -4,6 +4,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.view.View;
 import android.widget.ListView;
 
@@ -38,9 +39,9 @@ public class NearMeNow extends ListActivity {
             //get it from the server
             m_places = new ArrayList<Place>();
 
-            Date current = new Date();
-            Place a = new Place(current, "a", "address", 32, 23, 5);
-            Place b = new Place(current, "b", "baddress", 32, 23, 6);
+            Time current = new Time();
+            Place a = new Place(current, "ם התפילה1", "בן גוריון", 32, 23, 5, 6);
+            Place b = new Place(current, "תפילה 2", " סוקולוב", 32, 23, 6, 3.5);
             m_places.add(a);
             m_places.add(b);
 

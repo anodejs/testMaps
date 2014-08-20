@@ -1,19 +1,22 @@
 package com.example.administrator.myapplication;
 
+import android.text.format.Time;
+
 import java.util.Date;
 
 /**
  * Created by amitmach on 8/9/2014.
  */
 public class Place {
-    private Date m_date;
+    private Time m_date;
     private String m_name;
     private String m_address;
     private double m_latitude;
     private double m_longitude;
     private int m_numberOfPeople;
+    private double m_distance;
 
-    public Place(Date time, String name, String address, double latitude , double longitude, int numberOfPeople)
+    public Place(Time time, String name, String address, double latitude , double longitude, int numberOfPeople,double distance)
     {
         m_date = time;
         m_name = name;
@@ -21,6 +24,7 @@ public class Place {
         m_latitude = latitude;
         m_longitude = longitude;
         m_numberOfPeople = numberOfPeople;
+        m_distance = distance;
     }
 
     public String getName() {
@@ -28,8 +32,14 @@ public class Place {
     }
 
     public String getAddress() {
+
         return m_address;
     }
+    public double getDistance() {
+
+        return m_distance;
+    }
+
 
     public double getLatitude() {
         return m_latitude;
@@ -39,7 +49,7 @@ public class Place {
     }
 
 
-    public Date getTime() {
+    public Time getTime() {
         return m_date;
     }
 

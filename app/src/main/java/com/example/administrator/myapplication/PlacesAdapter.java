@@ -58,12 +58,12 @@ public class PlacesAdapter extends BaseAdapter {
         TextView numberOfPeopleTextView = (TextView) rowView.findViewById(R.id.placelistitemnumber);
 
 
-        Place bingPlace = (Place) getItem(position);
-        titleTextView.setText(bingPlace.getName());
-        distanceTextView.setText("0");
-        locationTextView.setText(bingPlace.getAddress());
-        timeTextView.setText(bingPlace.getTime().toString());
-        String numberOfPeople = bingPlace.getNumberOfPeople() + "";
+        Place place = (Place) getItem(position);
+        titleTextView.setText(place.getName());
+        distanceTextView.setText(String.valueOf(place.getDistance()));
+        locationTextView.setText(place.getAddress());
+        timeTextView.setText(place.getTime().format("%k:%M"));
+        String numberOfPeople = place.getNumberOfPeople() + "";
         numberOfPeopleTextView.setText(numberOfPeople);
 
 

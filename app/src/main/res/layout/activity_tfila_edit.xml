@@ -5,9 +5,136 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.administrator.myapplication.TfilaEditActivity">
+    tools:context="com.example.administrator.myapplication.TfilaEditActivity"
+   >
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch1"
+        android:gravity="top"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:paddingBottom="20dp"/>
 
     <TextView
+        android:id="@+id/startTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="שעת התחלה"
+        android:textSize="20dp"
+        android:layout_alignBottom="@+id/editTextEndTime"
+        android:layout_alignEnd="@+id/switch1" />
+
+    <EditText
+        android:id="@+id/editTextEndTime"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:editable="false"
+        android:layout_toStartOf="@+id/switch1"
+        android:layout_below="@+id/switch1">
+    </EditText>
+
+    <ImageButton
+        android:id="@+id/startTimeimageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:cropToPadding="true"
+        android:gravity="left"
+        android:src="@drawable/clock"
+        android:layout_alignBottom="@+id/editTextEndTime"
+        android:layout_toStartOf="@+id/editTextEndTime"
+        android:layout_below="@+id/switch1" />
+
+    <AutoCompleteTextView
+        android:text="@string/hello_world"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationautocomplete"
+        android:gravity="left"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/endTimetextView" />
+
+    <TextView
+        android:id="@+id/adressTextViwe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/locationautocomplete"
+        android:layout_alignTop="@+id/locationautocomplete"
+        android:gravity="center_vertical"
+        android:textSize="20dp"
+        android:text="כתובת"/>
+
+    <TextView
+        android:id="@+id/endTimetextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="שעת סיום"
+        android:textSize="20dp"
+        android:layout_toEndOf="@+id/editTextEndTime"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/startTimeTextView"
+        android:layout_alignEnd="@+id/startTimeTextView" />
+
+    <EditText
+        android:id="@+id/endTimeeditText"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:editable="false"
+        android:layout_toStartOf="@+id/endTimetextView"
+        android:layout_alignBottom="@+id/endTimetextView" />
+
+    <ImageButton
+        android:id="@+id/endTimeimageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:cropToPadding="true"
+        android:gravity="left"
+        android:src="@drawable/clock"
+        android:layout_toStartOf="@+id/editTextEndTime"
+        android:layout_alignTop="@+id/endTimeeditText"
+        android:layout_alignBottom="@+id/endTimeeditText"
+        android:layout_alignStart="@+id/startTimeimageButton" />
+
+    <TextView
+        android:id="@+id/distancetextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textSize="20dp"
+        android:text="מרחק"
+        android:layout_below="@+id/locationautocomplete"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText3"
+        android:layout_alignBottom="@+id/distancetextView"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="שמור"
+        android:id="@+id/sumbitbutton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>
+    <!--
+
+        <TextView
         android:text="סוג תפילה"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
@@ -32,71 +159,6 @@
         android:paddingBottom="10dp"
         />
 
-    <TimePicker
-    android:id="@+id/timePickerStartTime"
-    android:layout_below="@+id/textViewType"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:scaleY="0.7"
-    android:scaleX="0.7"/>
-
-    <TextView
-        android:id="@+id/startTimeTextViwe"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
-        android:layout_alignBottom="@+id/timePickerStartTime"
-        android:layout_alignTop="@+id/timePickerStartTime"
-        android:gravity="center_vertical"
-        android:text="שעת התחלה"/>
-
-
-    <AutoCompleteTextView
-
-        android:layout_below="@+id/startTimeTextViwe"
-        android:text="@string/hello_world"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/locationautocomplete"
-        android:gravity="left"/>
-
-    <TextView
-        android:id="@+id/adressTextViwe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignBottom="@+id/locationautocomplete"
-        android:layout_alignTop="@+id/locationautocomplete"
-        android:gravity="center_vertical"
-        android:text="כתובת:"/>
-
-    <EditText
-        android:id="@+id/distanceEditText"
-        android:layout_below="@+id/locationautocomplete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-     />
-
-    <TextView
-        android:id="@+id/distanceTextViwe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignBottom="@+id/distanceEditText"
-        android:layout_alignTop="@+id/distanceEditText"
-        android:gravity="center_vertical"
-        android:text="מרחק"/>
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="שמור"
-    android:layout_alignParentBottom="true"
-    android:layout_centerHorizontal="true"
-    android:id="@+id/btnSubmit"/>
-
-</RelativeLayout>
-    <!--
      <TimePicker
          android:id="@+id/timePickerEndTime"
          android:layout_below="@+id/timePickerStartTime"

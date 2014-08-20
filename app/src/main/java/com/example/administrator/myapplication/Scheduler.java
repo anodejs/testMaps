@@ -73,8 +73,8 @@ public class Scheduler extends ListActivity {
             Tfila sample = new Tfila(Tfila.Type.Saharit, now, now, "ראשון", 10, 0,1);
             Tfila sample1 = new Tfila(Tfila.Type.Aravit, now, now, "שני", 20,1,0);
             Tfila sample2 = new Tfila(Tfila.Type.Minha, now, now, "שלישי", 20,3,0);
-            m_tfilot.add(sample);
 
+            m_tfilot.add(sample);
             m_tfilot.add(sample1);
             m_tfilot.add(sample2);
 
