@@ -71,7 +71,10 @@ public class TfilaAdapter extends BaseAdapter{
 
 
         ImageView dayImageView = (ImageView) rowView.findViewById(R.id.day_icon);
-        ImageView tfilaTypeImageView= (ImageView) rowView.findViewById(R.id.type_icon);
+       // ImageView tfilaTypeImageView= (ImageView) rowView.findViewById(R.id.type_icon);
+
+        TextView tfilaTypeImageView= (TextView) rowView.findViewById(R.id.type_icon);
+
         TextView startTimeTextView = (TextView) rowView.findViewById(R.id.starttimetextview);
         TextView endTimeTextView = (TextView) rowView.findViewById(R.id.endtimetextview);
 
@@ -118,13 +121,16 @@ public class TfilaAdapter extends BaseAdapter{
         {
 
             case Saharit:
-                tfilaTypeImageView.setImageResource(R.drawable.saharit);
+           //     tfilaTypeImageView.setImageResource(R.drawable.saharit);
+                tfilaTypeImageView.setText(" שחרית");
                 break;
             case Minha:
-                tfilaTypeImageView.setImageResource(R.drawable.minha);
+           //     tfilaTypeImageView.setImageResource(R.drawable.minha);
+                tfilaTypeImageView.setText(" מנחה");
                 break;
             case Aravit:
-                tfilaTypeImageView.setImageResource(R.drawable.aravit);
+             //   tfilaTypeImageView.setImageResource(R.drawable.aravit);
+                tfilaTypeImageView.setText(" ערבית");
                 break;
         }
 

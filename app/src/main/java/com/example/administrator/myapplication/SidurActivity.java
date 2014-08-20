@@ -2,7 +2,8 @@ package com.example.administrator.myapplication;
 
     import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
+    import android.text.method.ScrollingMovementMethod;
+    import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -21,29 +22,28 @@ import android.widget.Toast;
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_sidur);
 
-            //sidorText =(TextView) findViewById(R.id.TextViewSidor);
-            //sidorText.setMovementMethod(new ScrollingMovementMethod());
+            sidorText =(TextView) findViewById(R.id.TextViewSidor);
+            sidorText.setMovementMethod(new ScrollingMovementMethod());
+            spinnerType = (Spinner) findViewById(R.id.spinnerType1);
+            spinnerVerison = (Spinner) findViewById(R.id.spinnerVerison1);
+            btnSubmit = (Button) findViewById(R.id.btnSubmit);
 
-            //addListenerOnButton();
-            //addListenerOnSpinnerItemSelection();
+
+            addListenerOnSpinnerItemSelection();
+            addListenerOnButton();
         }
 
 
 
         public void addListenerOnSpinnerItemSelection() {
-            spinnerType = (Spinner) findViewById(R.id.spinnerType1);
-            spinnerType.setOnItemSelectedListener(new CustomOnItemSelectedListener());
 
-            //spinnerVerison = (Spinner) findViewById(R.id.spinnerVerison1);
+            spinnerType.setOnItemSelectedListener(new CustomOnItemSelectedListener());
             spinnerVerison.setOnItemSelectedListener(new CustomOnItemSelectedListener());
         }
 
         // get the selected dropdown list value
         public void addListenerOnButton() {
 
-            spinnerType = (Spinner) findViewById(R.id.spinnerType1);
-            //spinnerVerison = (Spinner) findViewById(R.id.spinnerVerison1);
-            //btnSubmit = (Button) findViewById(R.id.btnSubmit);
 
             btnSubmit.setOnClickListener(new OnClickListener() {
 

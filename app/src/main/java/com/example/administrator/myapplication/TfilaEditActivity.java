@@ -7,12 +7,15 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Switch;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.List;
@@ -22,12 +25,14 @@ public class TfilaEditActivity extends Activity implements View.OnClickListener 
 
     private AutoCompleteTextView _autoCompleteTextView;
     private Button _sumbit;
-    private ImageButton ib;
+    private Switch _switch;
+    private ImageButton startTimeButton, endTimeButton;
     private Calendar cal;
     private int hour;
     private int min;
-    private EditText et;
+    private EditText editTextStartTime , editTextEndTime, editTextdistance;
     String location;
+    private Boolean startTime = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,24 +40,43 @@ public class TfilaEditActivity extends Activity implements View.OnClickListener 
         setContentView(R.layout.activity_tfila_edit);
 
         _autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.locationautocomplete);
-        _sumbit = (Button) findViewById(R.id.btnSubmit);
+        _sumbit = (Button) findViewById(R.id.sumbitbutton);
+        _switch = (Switch)findViewById(R.id.switch1);
+        startTimeButton = (ImageButton) findViewById(R.id.startTimeimageButton);
+        editTextStartTime = (EditText) findViewById(R.id.editTextStartTime);
+        startTimeButton = (ImageButton) findViewById(R.id.startTimeimageButton);
+        editTextEndTime = (EditText) findViewById(R.id.endTimeeditText);
+        endTimeButton = (ImageButton) findViewById(R.id.endTimeimageButton);
+        editTextdistance = (EditText) findViewById(R.id.distanceeditText);
         _autoCompleteTextView.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.autocomplete_list_item));
 
-        ib = (ImageButton) findViewById(R.id.startTimeimageButton);
         cal = Calendar.getInstance();
         hour = cal.get(Calendar.HOUR_OF_DAY);
         min = cal.get(Calendar.MINUTE);
-        //todo
-        et = (EditText) findViewById(R.id.editTextEndTime);
-        ib.setOnClickListener(this);
 
+
+        startTimeButton.setOnClickListener(this);
+        endTimeButton.setOnClickListener(this);
+        _sumbit.setOnClickListener(this);
 
 
         Bundle b = getIntent().getExtras();
-
          location = b.getString("location");
         _autoCompleteTextView.setText(location);
-        _sumbit.setOnClickListener(this);
+
+        //press enter
+        _autoCompleteTextView.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(keyCode == 66) {
+
+                    editTextdistance.requestFocus();
+                }
+                return false;
+            }
+        });
+
+
+
     }
 
 
@@ -86,22 +110,35 @@ public class TfilaEditActivity extends Activity implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
+        startTime = false;
 
         if (view.getId() == _sumbit.getId())
         {
-        //    GeoPoint p = getLocationFromAddress(location);
+            Location p = getLocationFromAddress(location);
+            Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + p.getLatitude() + "\nLong: " + p.getLongitude(), Toast.LENGTH_LONG).show();
+
         }
 
-        if (view.getId() == ib.getId())
+
+
+        if (view.getId() == startTimeButton.getId())
         {
+            startTime = true;
             showDialog(0);
+        }
+
+        if (view.getId() == endTimeButton.getId())
+        {
+            showDialog(1);
         }
     }
 
     @Override
     @Deprecated
     protected Dialog onCreateDialog(int id) {
-        return new TimePickerDialog(this, timePickerListener, hour, min, false);
+
+            return new TimePickerDialog(this, timePickerListener, hour, min, false);
+
     }
 
     private TimePickerDialog.OnTimeSetListener timePickerListener = new TimePickerDialog.OnTimeSetListener() {
@@ -116,7 +153,13 @@ public class TfilaEditActivity extends Activity implements View.OnClickListener 
                 hour = hourOfDay;
                 am_pm = "AM";
             }
-            et.setText(hour + " : " + minute + " " + am_pm);
+            if(startTime) {
+                editTextStartTime.setText(hour + " : " + minute + " " + am_pm);
+
+            }
+            else {
+                editTextEndTime.setText(hour + " : " + minute + " " + am_pm);
+            }
         }
     };
 
