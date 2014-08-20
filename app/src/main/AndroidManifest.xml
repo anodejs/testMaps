@@ -55,7 +55,7 @@
         </activity>
         <activity
             android:name=".MagneticCompass"
-            android:label="Magnetic" >
+            android:label="מצפן ירושלים" >
         </activity>
         <activity
             android:name=".Scheduler"

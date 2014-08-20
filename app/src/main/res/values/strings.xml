@@ -6,12 +6,10 @@
     <string name="title_activity_main">מניין</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_near_me_now">מצא עכשיו</string>
+    <string name="title_activity_near_me_now">חפש עכשיו </string>
     <string name="google_maps_key">AIzaSyBOMjgLweq-bSXzV6F21hh6cJmpp_FjU8k</string>
-    <string name="findnearme">find near me</string>
-    <string name="alerts">alerts</string>
-    <string name="title_place">place</string>
-    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_place">ממניין</string>
+    <string name="title_activity_splash">""</string>
     <string name="title_activity_signup">רישום</string>
 
     <string-array name="Verison_arrays">
@@ -39,10 +37,9 @@
         <item name="android:shadowRadius">1</item>
     </style>
 
-    <string name="title_activity_sidor">SidorActivity</string>
-    <string name="title_activity_test">TestActivity</string>
-    <string name="title_activity_scheduler">Scheduler</string>
-    <string name="title_activity_tfila_edit">TfilaEditActivity</string>
+    <string name="title_activity_sidor">סידור</string>
+    <string name="title_activity_scheduler">לוח תפילות</string>
+    <string name="title_activity_tfila_edit">הגדרות</string>
 
 
 </resources>
