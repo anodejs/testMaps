@@ -62,6 +62,11 @@
             android:label="@string/title_activity_scheduler" >
         </activity>
         <activity
+            android:name=".AndroidWSClient"
+            android:label="" >
+        </activity>
+
+        <activity
             android:name=".TfilaEditActivity"
             android:label="@string/title_activity_tfila_edit" >
         </activity>

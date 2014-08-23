@@ -21,6 +21,11 @@ public class MainActivity extends Activity {
         // if extending Activity
         setContentView(R.layout.activity_main);
 
+
+        Intent intent = new Intent(MainActivity.this, AndroidWSClient.class);
+            startActivity(intent);
+
+
         _nearMeButton = (Button) findViewById(R.id.nearMeNowButton );
         _scheudlerButton = (Button) findViewById(R.id.schedulerButton );
         _sidurButton = (Button) findViewById(R.id.SidurButton );

@@ -31,22 +31,22 @@ public class NearMeNow extends ListActivity {
 
     }
 
-    private class GetPlaces extends AsyncTask<Void, Void, Void> {
-        ArrayList<Place> m_places;
+           private class GetPlaces extends AsyncTask<Void, Void, Void> {
+            ArrayList<Place> m_places;
 
-        protected Void doInBackground(Void... params) {
+            protected Void doInBackground(Void... params) {
 
-            //get it from the server
-            m_places = new ArrayList<Place>();
+                //get it from the server
+                m_places = new ArrayList<Place>();
 
-            Time current = new Time();
-            Place a = new Place(current, "ם התפילה1", "בן גוריון", 32, 23, 5, 6);
-            Place b = new Place(current, "תפילה 2", " סוקולוב", 32, 23, 6, 3.5);
-            m_places.add(a);
-            m_places.add(b);
+                Time current = new Time();
+                Place a = new Place(current, "ם התפילה1", "בן גוריון", 32, 23, 5, 6);
+                Place b = new Place(current, "תפילה 2", " סוקולוב", 32, 23, 6, 3.5);
+                m_places.add(a);
+                m_places.add(b);
 
-            return null;
-        }
+                return null;
+            }
 
         @Override
         protected void onPostExecute(Void result) {
