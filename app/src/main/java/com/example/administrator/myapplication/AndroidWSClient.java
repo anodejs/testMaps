@@ -11,15 +11,9 @@ import org.ksoap2.serialization.PropertyInfo;
 
 
 import android.os.AsyncTask;
-import android.text.format.Time;
 import android.widget.TextView;
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 
 public class AndroidWSClient extends Activity {
 
@@ -28,7 +22,7 @@ public class AndroidWSClient extends Activity {
     private static String URL = "http://vmedu61.mtacloud.co.il:8080/Minyan/MinyanWS?wsdl";
     private static final String METHOD_NAME = "stam";
     private static final String SOAP_ACTION = "http://api/MinyanWS/stam";
-
+    String ans = "";
     private TextView lblResult;
 
 
@@ -40,22 +34,19 @@ public class AndroidWSClient extends Activity {
 
         lblResult = (TextView) findViewById(R.id.result);
 
-
         new MyTask().execute();
 
 
     }
 
-    private class MyTask extends AsyncTask<Void, Void, Void>{
+    private class MyTask extends AsyncTask<Void, Void, String> {
 
         String textResult;
 
         @Override
-        protected Void doInBackground(Void... params) {
-
+        protected String doInBackground(Void... params) {
 
             SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-
 
             PropertyInfo propInfo = new PropertyInfo();
             propInfo.name="arg0";
@@ -72,25 +63,23 @@ public class AndroidWSClient extends Activity {
                 androidHttpTransport.call(SOAP_ACTION, envelope);
 
                 SoapPrimitive  resultsRequestSOAP = (SoapPrimitive) envelope.getResponse();
-                String ans = resultsRequestSOAP.toString();
-              lblResult.setText(ans);
-                Toast.makeText(getApplicationContext(), ans, Toast.LENGTH_LONG).show();
+                 ans = resultsRequestSOAP.toString();
 
             } catch (Exception e) {
 
-                lblResult.setText(e.getMessage().toString());
+             //   lblResult.setText(e.getMessage().toString());
 
             }
-            return null;
+            return ans;
         }
 
         @Override
-        protected void onPostExecute(Void result) {
+        protected void onPostExecute(String result) {
 
-            lblResult.setText(textResult);
+            lblResult.setText(result);
 
 
-            super.onPostExecute(result);
+           // super.onPostExecute(result);
         }
 
     }

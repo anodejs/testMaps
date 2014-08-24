@@ -29,12 +29,6 @@ public class NearMeNow extends ListActivity {
 
         setListAdapter(m_adapter);
 
-        Button navigateButton = (Button) findViewById(R.id.navigatebutton );
-
-
-
-
-
         new GetPlaces().execute();
 
     }
