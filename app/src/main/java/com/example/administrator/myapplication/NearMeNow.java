@@ -2,10 +2,12 @@ package com.example.administrator.myapplication;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.format.Time;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -27,6 +29,12 @@ public class NearMeNow extends ListActivity {
 
         setListAdapter(m_adapter);
 
+        Button navigateButton = (Button) findViewById(R.id.navigatebutton );
+
+
+
+
+
         new GetPlaces().execute();
 
     }
@@ -40,8 +48,8 @@ public class NearMeNow extends ListActivity {
                 m_places = new ArrayList<Place>();
 
                 Time current = new Time();
-                Place a = new Place(current, "ם התפילה1", "בן גוריון", 32, 23, 5, 6);
-                Place b = new Place(current, "תפילה 2", " סוקולוב", 32, 23, 6, 3.5);
+                Place a = new Place(current, "בן גוריון", 32, 23, 5, 6);
+                Place b = new Place(current, " סוקולוב", 32, 23, 6, 3.5);
                 m_places.add(a);
                 m_places.add(b);
 
@@ -60,14 +68,5 @@ public class NearMeNow extends ListActivity {
     }
 
 
-    @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        Intent intent = new Intent(NearMeNow.this, PlaceActivity.class);
-        Bundle b = new Bundle();
-        Place item = (Place) m_adapter.getItem(position);
-        b.putString("name", item.getName());
-        b.putString("address", item.getAddress());
-        intent.putExtras(b);
-        startActivity(intent);
-    }
+
 }

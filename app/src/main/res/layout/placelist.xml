@@ -13,18 +13,6 @@
         android:background="#FFFFFF"
         >
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="title"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:id="@+id/placelisitemtitle"
-            android:textStyle="bold"
-            android:textSize="30sp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:gravity="right" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -123,6 +111,13 @@
             android:layout_height="wrap_content"
             android:gravity="left"
             android:paddingBottom="10dp"/>
+        <Button
+            android:id="@+id/navigatebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="נווט"
+            android:layout_below="@+id/placelistitemnumber"
+            android:layout_alignParentEnd="true" />
 
 
 

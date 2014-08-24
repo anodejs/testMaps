@@ -1,10 +1,13 @@
 package com.example.administrator.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -51,7 +54,6 @@ public class PlacesAdapter extends BaseAdapter {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(rowLayout, parent, false);
 
-        TextView titleTextView = (TextView) rowView.findViewById(R.id.placelisitemtitle);
         TextView distanceTextView = (TextView) rowView.findViewById(R.id.placelistitemdistance);
         TextView locationTextView = (TextView) rowView.findViewById(R.id.placelistitemlocation);
         TextView timeTextView = (TextView) rowView.findViewById(R.id.placelistitemtime);
@@ -59,13 +61,29 @@ public class PlacesAdapter extends BaseAdapter {
 
 
         Place place = (Place) getItem(position);
-        titleTextView.setText(place.getName());
         distanceTextView.setText(String.valueOf(place.getDistance()));
         locationTextView.setText(place.getAddress());
         timeTextView.setText(place.getTime().format("%k:%M"));
         String numberOfPeople = place.getNumberOfPeople() + "";
         numberOfPeopleTextView.setText(numberOfPeople);
 
+        Button navigateButton = (Button)rowView.findViewById(R.id.navigatebutton);
+
+        navigateButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("http://maps.google.com/maps?saddr=32.159481,34.842360&daddr=32.149417,34.844420"));
+               // startActivity(intent);
+
+
+                //Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                v.getContext().startActivity(intent);
+            }
+
+        });
 
         return rowView;
 
