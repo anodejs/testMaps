@@ -45,8 +45,10 @@ public class Scheduler extends ListActivity {
         super.onListItemClick(l, v, position, id);
         Intent intent = new Intent(this, TfilaEditActivity.class);
         Bundle b = new Bundle();
-        Tfila item = (Tfila) m_adapter.getItem(position);
+
+        Tfila item = (Tfila) m_adapter.getItem(position-1);
         b.putString("location", item.get_location());
+        b.putBoolean("active", item.get_active());
         intent.putExtras(b);
 
         startActivity(intent);
@@ -70,21 +72,24 @@ public class Scheduler extends ListActivity {
             Time now = new Time(Time.getCurrentTimezone());
             now.setToNow();
 
-            Tfila sample = new Tfila(Tfila.Type.Saharit, now, now, "ראשון", 10, 0,1);
-            Tfila sample1 = new Tfila(Tfila.Type.Aravit, now, now, "שני", 20,0,0);
-            Tfila sample2 = new Tfila(Tfila.Type.Minha, now, now, "שלישי", 20,0,0);
-            Tfila sample3 = new Tfila(Tfila.Type.Saharit, now, now, "ראשון", 10, 1,1);
-            Tfila sample4 = new Tfila(Tfila.Type.Aravit, now, now, "שני", 20,1,0);
-            Tfila sample5 = new Tfila(Tfila.Type.Minha, now, now, "שלישי", 20,1,0);
-            Tfila sample6 = new Tfila(Tfila.Type.Saharit, now, now, "ראשון", 10, 2,1);
-            Tfila sample7 = new Tfila(Tfila.Type.Aravit, now, now, "שני", 20,2,0);
-            Tfila sample8 = new Tfila(Tfila.Type.Minha, now, now, "שלישי", 20,2,0);
-            Tfila sample9 = new Tfila(Tfila.Type.Saharit, now, now, "ראשון", 10, 3,1);
-            Tfila sample10 = new Tfila(Tfila.Type.Aravit, now, now, "שני", 20,3,0);
-            Tfila sample11 = new Tfila(Tfila.Type.Minha, now, now, "שלישי", 20,3,0);
+            Tfila sample = new Tfila(Tfila.Type.Saharit, now, now, "ראשון", 10, 0,true);
+            Tfila sample1 = new Tfila(Tfila.Type.Aravit, now, now, "שני", 20,1,false);
+  /*
+            Tfila sample2 = new Tfila(Tfila.Type.Minha, now, now, "שלישי", 20,0,false);
+            Tfila sample3 = new Tfila(Tfila.Type.Saharit, now, now, "ראשון", 10, 1,true);
+            Tfila sample4 = new Tfila(Tfila.Type.Aravit, now, now, "שני", 20,1,false);
+            Tfila sample5 = new Tfila(Tfila.Type.Minha, now, now, "שלישי", 20,1,false);
+            Tfila sample6 = new Tfila(Tfila.Type.Saharit, now, now, "ראשון", 10, 2,true);
+            Tfila sample7 = new Tfila(Tfila.Type.Aravit, now, now, "שני", 20,2,true);
+            Tfila sample8 = new Tfila(Tfila.Type.Minha, now, now, "שלישי", 20,2,true);
+            Tfila sample9 = new Tfila(Tfila.Type.Saharit, now, now, "ראשון", 10, 3,true);
+            Tfila sample10 = new Tfila(Tfila.Type.Aravit, now, now, "שני", 20,3,false);
+            Tfila sample11 = new Tfila(Tfila.Type.Minha, now, now, "שלישי", 20,3,false);
 
+*/
             m_tfilot.add(sample);
             m_tfilot.add(sample1);
+           /*
             m_tfilot.add(sample2);
             m_tfilot.add(sample3);
             m_tfilot.add(sample4);
@@ -95,7 +100,7 @@ public class Scheduler extends ListActivity {
             m_tfilot.add(sample9);
             m_tfilot.add(sample10);
             m_tfilot.add(sample11);
-
+*/
             return null;
         }
 

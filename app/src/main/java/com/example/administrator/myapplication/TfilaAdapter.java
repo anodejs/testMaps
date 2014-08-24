@@ -137,7 +137,7 @@ public class TfilaAdapter extends BaseAdapter{
         startTimeTextView.setText(tfila.get_startTime().format("%k:%M"));
         endTimeTextView.setText(tfila.get_endTime().format("%k:%M"));
 
-        if(tfila.get_active() == 0)
+        if(!tfila.get_active())
         {
             rowView.setBackgroundColor(Color.LTGRAY);
         }

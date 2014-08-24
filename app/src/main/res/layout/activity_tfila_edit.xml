@@ -15,7 +15,8 @@
         android:gravity="top"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:paddingBottom="20dp"/>
+        android:paddingBottom="20dp"
+        />
 
     <TextView
         android:id="@+id/startTimeTextView"
@@ -37,13 +38,13 @@
         android:layout_below="@+id/switch1">
     </EditText>
 
-    <ImageButton
+    <Button
         android:id="@+id/startTimeimageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:cropToPadding="true"
         android:gravity="left"
-        android:src="@drawable/clock"
+        android:text= "כוון"
         android:layout_alignBottom="@+id/editTextStartTime"
         android:layout_toStartOf="@+id/editTextStartTime"
         android:layout_below="@+id/switch1" />
@@ -89,13 +90,13 @@
         android:layout_toStartOf="@+id/endTimetextView"
         android:layout_alignBottom="@+id/endTimetextView" />
 
-    <ImageButton
+    <Button
         android:id="@+id/endTimeimageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:cropToPadding="true"
         android:gravity="left"
-        android:src="@drawable/clock"
+        android:text= "כוון"
         android:layout_toStartOf="@+id/editTextStartTime"
         android:layout_alignTop="@+id/endTimeeditText"
         android:layout_alignBottom="@+id/endTimeeditText"

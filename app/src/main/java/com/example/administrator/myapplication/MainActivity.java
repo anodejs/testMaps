@@ -22,8 +22,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
 
-        Intent intent = new Intent(MainActivity.this, AndroidWSClient.class);
-            startActivity(intent);
+     //   Intent intent = new Intent(MainActivity.this, AndroidWSClient.class);
+       //     startActivity(intent);
 
 
         _nearMeButton = (Button) findViewById(R.id.nearMeNowButton );

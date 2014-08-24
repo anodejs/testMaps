@@ -28,8 +28,8 @@ public class Tfila {
     public int get_day() {
         return _day;
     }
-
-    public int get_active() {
+//1 active
+    public Boolean get_active() {
         return _active;
     }
 
@@ -45,9 +45,9 @@ public class Tfila {
     private String _location;
     private int _radius;
     private int _day;
-    private int _active;
+    private Boolean _active;
 
-    public Tfila(Type type, Time startTime, Time endTime, String location, int radius, int day, int active) {
+    public Tfila(Type type, Time startTime, Time endTime, String location, int radius, int day, Boolean active) {
 
         this._type = type;
         this._startTime = startTime;

@@ -13,9 +13,11 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -23,18 +25,20 @@ import java.util.Calendar;
 import java.util.List;
 
 
-public class TfilaEditActivity extends Activity implements View.OnClickListener {
+public class TfilaEditActivity extends Activity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     private AutoCompleteTextView _autoCompleteTextView;
     private Button _sumbit;
     private Switch _switch;
-    private ImageButton startTimeButton, endTimeButton;
+    private Button startTimeButton, endTimeButton;
+    private TextView startTimeTextView , endTimeTextView,adressTextViwe, distacneTextView;
     private Calendar cal;
     private int hour;
     private int min;
     private EditText editTextStartTime , editTextEndTime, editTextdistance;
     String location;
     private Boolean startTime = false;
+    private Boolean active ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +50,14 @@ public class TfilaEditActivity extends Activity implements View.OnClickListener 
         _autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.locationautocomplete);
         _sumbit = (Button) findViewById(R.id.sumbitbutton);
         _switch = (Switch)findViewById(R.id.switch1);
-        startTimeButton = (ImageButton) findViewById(R.id.startTimeimageButton);
+        startTimeTextView = (TextView)findViewById(R.id.startTimeTextView);
+        endTimeTextView = (TextView)findViewById(R.id.endTimetextView);
+        adressTextViwe = (TextView)findViewById(R.id.adressTextViwe);
+        distacneTextView = (TextView)findViewById(R.id.distancetextView);
         editTextStartTime = (EditText) findViewById(R.id.editTextStartTime);
-        startTimeButton = (ImageButton) findViewById(R.id.startTimeimageButton);
+        startTimeButton = (Button) findViewById(R.id.startTimeimageButton);
         editTextEndTime = (EditText) findViewById(R.id.endTimeeditText);
-        endTimeButton = (ImageButton) findViewById(R.id.endTimeimageButton);
+        endTimeButton = (Button) findViewById(R.id.endTimeimageButton);
         editTextdistance = (EditText) findViewById(R.id.distanceeditText);
         _autoCompleteTextView.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.autocomplete_list_item));
 
@@ -62,11 +69,24 @@ public class TfilaEditActivity extends Activity implements View.OnClickListener 
         startTimeButton.setOnClickListener(this);
         endTimeButton.setOnClickListener(this);
         _sumbit.setOnClickListener(this);
-
+        _switch.setOnCheckedChangeListener(this);
 
         Bundle b = getIntent().getExtras();
-         location = b.getString("location");
-        _autoCompleteTextView.setText(location);
+        location = b.getString("location");
+        active = b.getBoolean("active");
+       _autoCompleteTextView.setText(location);
+
+        if (active)
+        {
+            _switch.setChecked(true);
+        }
+        else
+        {
+            _switch.setChecked(false);
+            makeLayoutGone();
+        }
+
+
 
         //press enter
         _autoCompleteTextView.setOnKeyListener(new View.OnKeyListener() {
@@ -168,10 +188,50 @@ public class TfilaEditActivity extends Activity implements View.OnClickListener 
     };
 
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu items for use in the action bar
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.tfila_edit, menu);
-        return super.onCreateOptionsMenu(menu);
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+
+        if(isChecked){
+
+            makeLayoutVisible();
+        }
+        else
+        {
+            makeLayoutGone();
+        }
+
     }
+
+    private void makeLayoutVisible() {
+        editTextStartTime.setVisibility(View.VISIBLE);
+        startTimeButton.setVisibility(View.VISIBLE);
+        editTextEndTime.setVisibility(View.VISIBLE);
+        endTimeButton.setVisibility(View.VISIBLE);
+        editTextdistance.setVisibility(View.VISIBLE);
+        _autoCompleteTextView.setVisibility(View.VISIBLE);
+        _sumbit.setVisibility(View.VISIBLE);
+        startTimeTextView.setVisibility(View.VISIBLE);
+        endTimeTextView.setVisibility(View.VISIBLE);
+        adressTextViwe.setVisibility(View.VISIBLE);
+        distacneTextView.setVisibility(View.VISIBLE);
+
+    }
+
+    private void makeLayoutGone() {
+
+        editTextStartTime.setVisibility(View.GONE);
+        startTimeButton.setVisibility(View.GONE);
+        editTextEndTime.setVisibility(View.GONE);
+        endTimeButton.setVisibility(View.GONE);
+        editTextdistance.setVisibility(View.GONE);
+        _autoCompleteTextView.setVisibility(View.GONE);
+        _sumbit.setVisibility(View.GONE);
+        startTimeTextView.setVisibility(View.GONE);
+        endTimeTextView.setVisibility(View.GONE);
+        adressTextViwe.setVisibility(View.GONE);
+        distacneTextView.setVisibility(View.GONE);
+
+    }
+
+
 }
