@@ -40,6 +40,6 @@
     <string name="title_activity_sidor">סידור</string>
     <string name="title_activity_scheduler">לוח תפילות</string>
     <string name="title_activity_tfila_edit">הגדרות</string>
-
+    <string name="title_activity_demo">DemoActivity</string>
 
 </resources>
