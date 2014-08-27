@@ -1,15 +1,15 @@
 package com.example.administrator.myapplication;
 
 import android.app.Activity;
-        import android.hardware.Sensor;
-        import android.hardware.SensorEvent;
-        import android.hardware.SensorEventListener;
-        import android.hardware.SensorManager;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.location.Location;
 import android.os.Bundle;
-        import android.view.animation.Animation;
-        import android.view.animation.RotateAnimation;
-        import android.widget.ImageView;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
+import android.widget.ImageView;
 
 public class MagneticCompass extends Activity implements SensorEventListener {
 
@@ -25,7 +25,6 @@ public class MagneticCompass extends Activity implements SensorEventListener {
     private float[] mOrientation = new float[3];
     private float mCurrentDegree = 0f;
     private float mJerusAngle = 0f;
-    private  GPSTracker gps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +35,32 @@ public class MagneticCompass extends Activity implements SensorEventListener {
         mMagnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
         mPointer = (ImageView) findViewById(R.id.pointer);
         getStartingDegree();
+    }
+
+    private void getStartingDegree(){
+
+        GPSTracker GPST = new GPSTracker(MagneticCompass.this);
+        Location location = GPST.getLocation();
+        final double JERUS_LATITUDE = 31.7767891;
+        final double JERUS_LONGITUDE = 35.2344874;
+        double CurrLatitude = location.getLatitude();
+        double CurrLongitude = location.getLongitude();
+
+        // maybe should be opposite curr-jerus
+        mJerusAngle = ((float)(Math.toDegrees(Math.atan2(JERUS_LATITUDE - CurrLatitude, JERUS_LONGITUDE - CurrLongitude))) +360)%360;
+        mJerusAngle -=  90;
+
+        RotateAnimation ra = new RotateAnimation(
+                0f,
+                -mJerusAngle,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF,
+                0.5f);
+
+        ra.setDuration(210);
+        ra.setFillAfter(true);
+        mPointer.startAnimation(ra);
+        mCurrentDegree = -mJerusAngle;
     }
 
     protected void onResume() {
@@ -52,7 +77,6 @@ public class MagneticCompass extends Activity implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-
         if (event.sensor == mAccelerometer) {
             System.arraycopy(event.values, 0, mLastAccelerometer, 0, event.values.length);
             mLastAccelerometerSet = true;
@@ -64,8 +88,7 @@ public class MagneticCompass extends Activity implements SensorEventListener {
             SensorManager.getRotationMatrix(mR, null, mLastAccelerometer, mLastMagnetometer);
             SensorManager.getOrientation(mR, mOrientation);
             float azimuthInRadians = mOrientation[0];
-            //todo
-            float azimuthInDegress = (float)(Math.toDegrees(azimuthInRadians)+360+mJerusAngle)%360;
+            float azimuthInDegress = (float)(Math.toDegrees(azimuthInRadians)+360)%360+mJerusAngle%360;
             RotateAnimation ra = new RotateAnimation(
                     mCurrentDegree,
                     -azimuthInDegress,
@@ -79,8 +102,6 @@ public class MagneticCompass extends Activity implements SensorEventListener {
 
             mPointer.startAnimation(ra);
             mCurrentDegree = -azimuthInDegress;
-
-
         }
     }
 
@@ -90,30 +111,4 @@ public class MagneticCompass extends Activity implements SensorEventListener {
 
     }
 
-    private void getStartingDegree() {
-
-        gps = new GPSTracker(MagneticCompass.this);
-        Location location = gps.getLocation();
-        final double JERUS_LATITUDE = 31.7767891;
-        final double JERUS_LONGITUDE = 35.2344874;
-        double CurrLatitude = location.getLatitude();
-        double CurrLongitude = location.getLongitude();
-
-        // maybe should be opposite curr-jerus
-        mJerusAngle = (float) (Math.toDegrees(Math.atan2(JERUS_LONGITUDE - CurrLongitude, JERUS_LATITUDE - CurrLatitude))); // if not working add this: +360)%360;
-/*
-        RotateAnimation ra = new RotateAnimation(
-                0f,
-                -mJerusAngle,
-                Animation.RELATIVE_TO_SELF, 0.5f,
-                Animation.RELATIVE_TO_SELF,
-                0.5f);
-
-        ra.setDuration(210);
-        ra.setFillAfter(true);
-        mPointer.startAnimation(ra);
-        mCurrentDegree = -mJerusAngle;
-
-*/
-    }
 }

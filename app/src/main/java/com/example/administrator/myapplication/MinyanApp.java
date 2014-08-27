@@ -22,11 +22,12 @@ public class MinyanApp extends Application {
         return name != null;
     }
 
-    public void setUserAccount(String email, String name) {
+    public void setUserAccount(String email, String name, String regid) {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = settings.edit();
         editor.putString("email", email);
         editor.putString("name", name);
+        editor.putString("regId", regid);
         editor.commit();
     }
 

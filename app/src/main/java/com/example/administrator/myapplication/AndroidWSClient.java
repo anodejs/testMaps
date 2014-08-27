@@ -67,7 +67,6 @@ public class AndroidWSClient extends Activity {
 
             } catch (Exception e) {
 
-             //   lblResult.setText(e.getMessage().toString());
 
             }
             return ans;
@@ -78,8 +77,6 @@ public class AndroidWSClient extends Activity {
 
             lblResult.setText(result);
 
-
-           // super.onPostExecute(result);
         }
 
     }
