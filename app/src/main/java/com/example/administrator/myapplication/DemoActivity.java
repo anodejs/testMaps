@@ -52,9 +52,9 @@ public class DemoActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_demo);
-        }
+    }
 
-      public String getRegID(){
+    public String getRegID(){
 
         mDisplay = (TextView) findViewById(R.id.display);
 
@@ -72,8 +72,8 @@ public class DemoActivity extends Activity {
 
         else {
             Log.i(TAG, "No valid Google Play Services APK found.");
-         }
-          return regid;
+        }
+        return regid;
     }
 
     @Override
