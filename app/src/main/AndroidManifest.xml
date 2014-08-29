@@ -73,16 +73,15 @@
 
         <receiver
             android:name=".GcmBroadcastReceiver"
+            android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
-                <category android:name="com.example.gcm" />
+                <category android:name="com.example.administrator.myapplication" />
             </intent-filter>
         </receiver>
-
         <service android:name=".GcmIntentService" />
-
         <activity
             android:name=".DemoActivity"
             android:label="@string/title_activity_demo" >

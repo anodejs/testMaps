@@ -48,7 +48,8 @@ public class DemoActivity extends Activity {
      * Substitute you own sender ID here. This is the project number you got
      * from the API Console, as described in "Getting Started."
      */
-    String SENDER_ID = "901725098092";
+   String SENDER_ID = "901725098092";
+   // String SENDER_ID = "sound-groove-684";
 
     /**
      * Tag used on log messages.
