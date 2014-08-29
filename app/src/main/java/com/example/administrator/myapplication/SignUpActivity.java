@@ -208,9 +208,11 @@ public class SignUpActivity extends Activity {
         protected Boolean doInBackground(Void... params) {
 
             MinyanWSService service = new MinyanWSService();
-            loginStatus = service.insertUser(regid, m_nameTextView.getText().toString(), m_emailTextView.getText().toString());
+       //     loginStatus = service.insertUser(regid, m_nameTextView.getText().toString(), m_emailTextView.getText().toString());
 
-            return loginStatus;
+            return true;
+            //todo
+          //  return loginStatus;
         }
 
         @Override
