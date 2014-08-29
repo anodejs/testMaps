@@ -155,6 +155,7 @@ public class SignUpActivity extends Activity {
     }
 
     private void registerInBackground() {
+
         new AsyncTask<Void, Void, String>() {
             @Override
             protected String doInBackground(Void... params) {
@@ -206,10 +207,8 @@ public class SignUpActivity extends Activity {
 
         protected Boolean doInBackground(Void... params) {
 
-
             MinyanWSService service = new MinyanWSService();
             loginStatus = service.insertUser(regid, m_nameTextView.getText().toString(), m_emailTextView.getText().toString());
-
 
             return loginStatus;
         }
